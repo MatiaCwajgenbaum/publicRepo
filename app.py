@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-PAGE_TITLE = ""Multi-class Semantic Segmentation of Medical Images (MR-Linacs on the Torso)""
+PAGE_TITLE = "Multi-class Semantic Segmentation of Medical Images (MR-Linacs on the Torso)"
 
 
 def file_selector(folder_path='.'):
