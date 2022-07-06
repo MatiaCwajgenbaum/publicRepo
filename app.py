@@ -11,7 +11,7 @@ import matplotlib.image as mpimg
 PAGE_TITLE = "Multi-class Semantic Segmentation of Medical Images (MR-Linacs on the Torso)"
 
 
-LABEL_CONFIG_FN = r"https://github.com/MatiaCwajgenbaum/publicRepo/blob/main/label_config%20(1).json"
+LABEL_CONFIG_FN = r"label_config%20(1).json"
 with open(LABEL_CONFIG_FN, 'r') as f:
   label_config = json.load(f)
 
