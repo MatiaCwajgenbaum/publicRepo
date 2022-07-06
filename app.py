@@ -32,7 +32,7 @@ def file_selector_ui():
     # Select a file
     folder_path = '.'
     options = st.selectbox('get the file path',
-                           ['Select a file in current directory', 'Change directory', 'upload from computer'])
+                           ['Select a file in current directory', 'Change directory'])#,'upload from computer'])
 #     if options == 'upload from computer':
 #         # folder_path = st.file_uploader('Enter folder path', type='jpg')
 #         # folder_path = folder_path.read()
