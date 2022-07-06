@@ -6,7 +6,7 @@ import tensorflow as tf
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-impoty matplotlib.image as mpimg
+import matplotlib.image as mpimg
 
 PAGE_TITLE = ""Multi-class Semantic Segmentation of Medical Images (MR-Linacs on the Torso)""
 
