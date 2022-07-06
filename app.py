@@ -33,22 +33,22 @@ def file_selector_ui():
     folder_path = '.'
     options = st.selectbox('get the file path',
                            ['Select a file in current directory', 'Change directory', 'upload from computer'])
-    if options == 'upload from computer':
-        # folder_path = st.file_uploader('Enter folder path', type='jpg')
-        # folder_path = folder_path.read()
-        #folder_path = st.text_input('Enter folder path', '.')
-        #st.file_uploader("Upload a PNG image", type=([".png"]))
-        # if file_png:
-        #     file_png_bytes = st.file_reader(file_png)
-        #     st.image(file_png_bytes)
+#     if options == 'upload from computer':
+#         # folder_path = st.file_uploader('Enter folder path', type='jpg')
+#         # folder_path = folder_path.read()
+#         #folder_path = st.text_input('Enter folder path', '.')
+#         #st.file_uploader("Upload a PNG image", type=([".png"]))
+#         # if file_png:
+#         #     file_png_bytes = st.file_reader(file_png)
+#         #     st.image(file_png_bytes)
         
-        file_png = st.file_uploader("Upload a PNG image", type=([".png"]))
+#         file_png = st.file_uploader("Upload a PNG image", type=([".png"]))
 
-        if file_png:
-            # file_png_bytes = st.file_reader(file_png)
-            # st.image(file_png_bytes)
-            # load_image_from_path(file_png)
-            return file_png
+#         if file_png:
+#             # file_png_bytes = st.file_reader(file_png)
+#             # st.image(file_png_bytes)
+#             # load_image_from_path(file_png)
+#             return file_png
 
 
     # if options == 'Change directory':
