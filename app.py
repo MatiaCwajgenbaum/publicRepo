@@ -6,8 +6,9 @@ import tensorflow as tf
 import time
 import numpy as np
 import matplotlib.pyplot as plt
+impoty matplotlib.image as mpimg
 
-PAGE_TITLE = "Image Segmentation with Streamlit"
+PAGE_TITLE = ""Multi-class Semantic Segmentation of Medical Images (MR-Linacs on the Torso)""
 
 
 def file_selector(folder_path='.'):
@@ -16,24 +17,28 @@ def file_selector(folder_path='.'):
     return os.path.join(folder_path, selected_filename)
 
 
+
 def file_selector_ui():
     # Select a file
     folder_path = '.'
     options = st.selectbox('get the file path',
                            ['Select a file in current directory', 'Change directory', 'upload from computer'])
-    if options == 'Upload from computer':
+    if options == 'upload from computer':
         # folder_path = st.file_uploader('Enter folder path', type='jpg')
         # folder_path = folder_path.read()
-        folder_path = st.file_uploader("Upload a PNG image", type=([".png"]))
+        folder_path = st.text_input('Enter folder path', '.')
+        #st.file_uploader("Upload a PNG image", type=([".png"]))
         # if file_png:
         #     file_png_bytes = st.file_reader(file_png)
         #     st.image(file_png_bytes)
 
-    if options == 'Change directory':
-        folder_path = st.text_input('Enter folder path', '.')
+    # if options == 'Change directory':
+    #     folder_path = st.text_input('Enter folder path', '.')
     print(folder_path)
     filename = file_selector(folder_path=folder_path)
     st.write('You selected `%s`' % filename)
+
+    return filename
 
 
 def main():
@@ -45,6 +50,11 @@ def main():
     image_path = os.path.abspath(image_path)
 
     if os.path.isfile(image_path) is True:
+        img = mpimg.imread(image_path)
+        plt.figure(figsize=(5, 5))
+        plt.imshow(img)
+        plt.show()
+        st.pyplot(plt)
         file_name = os.path.basename(image_path)
         _, file_extension = os.path.splitext(image_path)
         if file_extension == ".png":
@@ -55,6 +65,7 @@ def main():
             # st.write(type(semantic_image))
             end_time_2 = time.time() - start_time_2
             st.write("**Semantic Segmentation**")
+            plt.figure(figsize=(5, 5))
             plt.imshow(img)
             plt.imshow(semantic_image, alpha=0.5)
             plt.show()
