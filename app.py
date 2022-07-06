@@ -17,7 +17,6 @@ def file_selector(folder_path='.'):
     return os.path.join(folder_path, selected_filename)
 
 
-
 def file_selector_ui():
     # Select a file
     folder_path = '.'
