@@ -7,6 +7,7 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import json
 
 PAGE_TITLE = "Multi-class Semantic Segmentation of Medical Images (MR-Linacs on the Torso)"
 
