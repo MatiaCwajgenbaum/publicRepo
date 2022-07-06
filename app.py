@@ -18,16 +18,22 @@ def file_selector(folder_path='.'):
 
 def file_selector_ui():
     # Select a file
-    if st.checkbox('Select a file in current directory'):
-        folder_path = '.'
-        if st.checkbox('Change directory'):
-            folder_path = st.text_input('Enter folder path', '.')
-        filename = file_selector(folder_path=folder_path)
-        st.write('You selected `%s`' % filename)
-    else:
-        return "."
+    folder_path = '.'
+    options = st.selectbox('get the file path',
+                           ['Select a file in current directory', 'Change directory', 'upload from computer'])
+    if options == 'Upload from computer':
+        # folder_path = st.file_uploader('Enter folder path', type='jpg')
+        # folder_path = folder_path.read()
+        folder_path = st.file_uploader("Upload a PNG image", type=([".png"]))
+        # if file_png:
+        #     file_png_bytes = st.file_reader(file_png)
+        #     st.image(file_png_bytes)
 
-    return filename
+    if options == 'Change directory':
+        folder_path = st.text_input('Enter folder path', '.')
+    print(folder_path)
+    filename = file_selector(folder_path=folder_path)
+    st.write('You selected `%s`' % filename)
 
 
 def main():
