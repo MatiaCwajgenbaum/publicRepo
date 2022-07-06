@@ -34,8 +34,10 @@ def file_selector_ui():
         file_png = st.file_uploader("Upload a PNG image", type=([".png"]))
 
         if file_png:
-            file_png_bytes = st.file_reader(file_png)
-            st.image(file_png_bytes)
+            # file_png_bytes = st.file_reader(file_png)
+            # st.image(file_png_bytes)
+            # load_image_from_path(file_png)
+            return file_png
 
 
     # if options == 'Change directory':
