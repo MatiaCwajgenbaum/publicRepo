@@ -11,6 +11,16 @@ import matplotlib.image as mpimg
 PAGE_TITLE = "Multi-class Semantic Segmentation of Medical Images (MR-Linacs on the Torso)"
 
 
+LABEL_CONFIG_FN = r"C:\Users\matia\Downloads\\app-main\\app-main\label_config (1).json"
+with open(LABEL_CONFIG_FN, 'r') as f:
+  label_config = json.load(f)
+
+N_LABELS = len(label_config)
+LABEL_NAMES = sorted(label_config, key=lambda k: label_config[k]['index'])
+LABEL_COLORS = np.array([label_config[n]['color'] for n in LABEL_NAMES])
+
+
+
 def file_selector(folder_path='.'):
     filenames = os.listdir(folder_path)
     selected_filename = st.selectbox('Select a file', filenames)
@@ -69,13 +79,14 @@ def main():
             st.button('Instance Segmentation')
             start_time_2 = time.time()
             semantic_image, img = do_semantic(image_path)
+            mask = LABEL_COLORS[semantic_image]
             # st.write(np.unique(semantic_image))#.shape)
             # st.write(type(semantic_image))
             end_time_2 = time.time() - start_time_2
             st.write("**Semantic Segmentation**")
             plt.figure(figsize=(5, 5))
             plt.imshow(img)
-            plt.imshow(semantic_image, alpha=0.5)
+            plt.imshow(mask, alpha=0.5)
             plt.show()
             st.pyplot(plt)
             st.write(end_time_2)
