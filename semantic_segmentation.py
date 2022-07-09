@@ -15,7 +15,7 @@ def do_semantic(img_path):
     img = cv2.resize(img, (256, 256), interpolation=cv2.INTER_NEAREST)  # [:,:,0]
 
     # segment_image = semantic_segmentation()
-    model = tf.keras.models.load_model(absolute_path)
+    model = tf.keras.models.load_model(absolute_path, compile=False)
     x = img.reshape(1, 256, 256, 1)
     y = model.predict(x)
     # Load the xception model trained on pascal voc for segmenting objects.
