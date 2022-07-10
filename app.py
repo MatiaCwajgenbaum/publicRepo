@@ -78,7 +78,7 @@ def main():
                 semantic_image, img = do_semantic(image_path)
                 mask = LABEL_COLORS[semantic_image]
                 end_time_2 = time.time() - start_time_2
-                plt.figure(figsize=(3, 3))
+                plt.figure(figsize=(1, 1))
                 plt.axis('off')
                 plt.imshow(img)
                 plt.imshow(mask, alpha=0.5)
